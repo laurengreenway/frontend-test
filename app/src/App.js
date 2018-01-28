@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { injectGlobal } from 'styled-components'
 import './App.css'
-import { Modal, ModalContainer, CloseButton, Layout } from './StyledComponents'
-import LogoSplash from './LogoSplash'
-import BrandOverviewCard from './BrandOverviewCard'
+import { Modal, ModalContainer, CloseButton, Layout } from './components/StyledComponents'
+import LogoSplash from './components/LogoSplash'
+import BrandOverviewCard from './components/BrandOverviewCard'
 import { brandAssets } from './data'
 
 injectGlobal`

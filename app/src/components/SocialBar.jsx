@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Facebook from './assets/facebook.png'
-import Twitter from './assets/twitter.png'
-import Email from './assets/email.png'
-import Link from './assets/link.png'
+import Facebook from '../assets/facebook.png'
+import Twitter from '../assets/twitter.png'
+import Email from '../assets/email.png'
+import Link from '../assets/link.png'
 
 const StyledSocialBar = styled.div`
   display: flex;

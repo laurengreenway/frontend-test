@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import DelightLabs from './assets/logo-lg.png'
-import Close from './assets/close.png'
+import DelightLabs from '../assets/logo-lg.png'
+import Close from '../assets/close.png'
 
 const OverlayContainer = styled.div`
   display: flex;

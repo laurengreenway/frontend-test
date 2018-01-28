@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import { OverlayContainer, StyledSideBar, Thumbnail } from './StyledComponents'
-import check from './assets/check.png'
+import check from '../assets/check.png'
 
 const SideBar = (props) => {
   return (
