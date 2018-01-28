@@ -1,23 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Logo, Button, FlexContainer } from './StyledComponents'
+import { Logo, Button, OverlayContainer } from './StyledComponents'
 
-const LogoSplash = ({ handleClick, buttonText, hoverCTA }) => {
+const LogoSplash = ({ handleClick, hoverCTAText }) => {
   return (
     <Logo>
-      {hoverCTA ?
-        <FlexContainer>
-          <Button onClick={() => handleClick()}>{buttonText}</Button>
-        </FlexContainer>
-      : ''}
+      <OverlayContainer>
+        <Button onClick={() => handleClick()}>{hoverCTAText}</Button>
+      </OverlayContainer>
     </Logo>
   )
 }
 
 LogoSplash.propTypes = {
   handleClick: PropTypes.func,
-  buttonText: PropTypes.string,
-  hoverCTA: PropTypes.bool,
+  hoverCTAText: PropTypes.string,
 }
 
 export default LogoSplash
