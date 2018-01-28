@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import DelightLabs from './assets/logo-lg.png'
 import Close from './assets/close.png'
 
-
 const OverlayContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -11,7 +10,7 @@ const OverlayContainer = styled.div`
   height: inherit;
   border-radius: 8px;
   &:hover {
-    background-color: rgba(0,0,0,0.6);
+    background-color: rgba(0, 0, 0, 0.6);
   }
 `
 
@@ -20,7 +19,7 @@ const InfoContainer = styled.div`
   grid-column-end: 5;
   .text-container {
     padding: 26px 25px;
-    border: 1px solid #D4DBE8;
+    border: 1px solid #d4dbe8;
     border-top: none;
     border-radius: 0 0 4px 4px;
     h2 {
@@ -48,7 +47,7 @@ const InfoContainer = styled.div`
 const ModalContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color:rgba(0,0,0,0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,7 +64,7 @@ const Layout = styled.section`
 `
 
 const Modal = styled.div`
-  width: 66vw;
+  width: 90vw;
   max-width: 760px;
   background-color: white;
   display: grid;
@@ -77,14 +76,14 @@ const Modal = styled.div`
 `
 
 const Logo = styled.div`
-  box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, .18);
+  box-shadow: 0px 10px 34px 0px rgba(0, 0, 0, 0.18);
   background: url(${DelightLabs}) center/cover no-repeat;
   width: 100%;
   max-width: 538px;
   height: 373px;
   max-height: 373px;
   border-radius: 8px;
-  background-color: #16C79E;
+  background-color: #16c79e;
   position: relative;
   display: flex;
   justify-content: center;
@@ -125,13 +124,56 @@ const Button = styled.button`
   padding: 17px 78px;
 `
 const CloseButton = styled.button`
-  background: url(${Close}) center/cover no-repeat;
+  background: url(${Close}) center no-repeat;
   position: absolute;
-  top: 20px;
-  right: 20px;
-  height: 16px;
-  width: 16px;
+  top: 10px;
+  right: 10px;
+  height: 26px;
+  width: 26px;
   border: none;
+  transform: rotate(0);
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    transform: rotate(90deg);
+  }
 `
 
-export { ModalContainer, Modal, Logo, Button, OverlayContainer, CloseButton, InfoContainer, Layout, HeroImage }
+const StyledSideBar = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column-start: 2;
+  grid-column-end: 3;
+`
+
+const Thumbnail = styled.div`
+  width: 100%;
+  height: 120px;
+  margin-bottom: 15px;
+  background: url(${props => props.src}) center/cover no-repeat;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  img {
+    display: none;
+  }
+  &:hover {
+    img {
+      display: block;
+    }
+  }
+`
+
+export {
+  Button,
+  CloseButton,
+  HeroImage,
+  InfoContainer,
+  Layout,
+  Logo,
+  Modal,
+  ModalContainer,
+  OverlayContainer,
+  StyledSideBar,
+  Thumbnail,
+}

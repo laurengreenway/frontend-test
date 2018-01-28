@@ -1,53 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
 import SocialBar from './SocialBar'
-import { InfoContainer, HeroImage, OverlayContainer } from './StyledComponents'
-import check from './assets/check.png'
+import SideBar from './SideBar'
+import { InfoContainer, HeroImage } from './StyledComponents'
 
-const StyledSideBar = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  grid-column-start: 2;
-  grid-column-end: 3;
-`
-
-const Thumbnail = styled.div`
-  width: 100%;
-  height: 120px;
-  margin-bottom: 15px;
-  background: url(${props => props.src}) center/cover no-repeat;
-  &:last-child {
-    margin-bottom: 0;
-  }
-  img {
-    display: none;
-  }
-  &:hover {
-    img {
-      display: block;
-    }
-  }
-`
-
-const SideBar = (props) => {
-  return (
-    <StyledSideBar>
-      {props.brandAssets.map(a => (
-        <Thumbnail src={a.thumbnail} key={a.id} onClick={() => props.handleClick(a.id)}>
-          <OverlayContainer>
-            <img src={check} alt={`Select ${a.alt}`} />
-          </OverlayContainer>
-        </Thumbnail>
-        ))}
-    </StyledSideBar>
-  )
-}
-
-SideBar.propTypes = {
-  brandAssets: PropTypes.arrayOf(PropTypes.object),
-}
 
 // eslint-disable-next-line
 class BrandOverviewCard extends React.Component {
