@@ -14,6 +14,9 @@ const OverlayContainer = styled.div`
   &:hover {
     background-color: ${props => (props.small ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.6)')};
   }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+  }
 `
 
 const InfoContainer = styled.div`
@@ -46,6 +49,9 @@ const InfoContainer = styled.div`
       line-height: 21px;
     }
   }
+  @media screen and (max-width: 768px) {
+    grid-column-start: 2;
+  }
 `
 
 const ModalContainer = styled.div`
@@ -71,6 +77,8 @@ const Layout = styled.section`
 const Modal = styled.div`
   width: 90vw;
   max-width: 760px;
+  max-height: 90vh;
+  overflow-y: scroll;
   background-color: white;
   display: grid;
   grid-template-columns: 55px 120px 15px auto 53px;
@@ -89,6 +97,9 @@ const Modal = styled.div`
     }
   }
   animation: scaleUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+  @media screen and (max-width: 768px) {
+    grid-template-rows: 75px 15vh auto;
+  }
 `
 
 const Logo = styled.div`
@@ -115,7 +126,6 @@ const Logo = styled.div`
 const HeroImage = styled.div`
   background: url(${props => props.activeImage}) center/cover no-repeat;
   width: 100%;
-  max-width: 538px;
   height: 50vh;
   max-height: 358px;
   border-radius: 8px;
@@ -123,6 +133,9 @@ const HeroImage = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 4px 4px 0 0;
+  @media screen and (max-width: 768px) {
+    max-height: 275px;
+  }
 `
 
 const Button = styled.button`
@@ -161,6 +174,38 @@ const StyledSideBar = styled.div`
   justify-content: space-between;
   grid-column-start: 2;
   grid-column-end: 3;
+  @media screen and (max-width: 768px) {
+    flex-direction: row;
+    grid-column-end: 5;
+  }
+`
+
+const StyledSocialBar = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  grid-column-start: 1;
+  grid-column-end: 6;
+  padding: 25px;
+  img {
+    width: 35px;
+    height: 35px;
+    margin-left: 8px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  p {
+    height: 19px;
+    width: 75px;
+    color: #090b17;
+    font-family: Avenir;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 19px;
+    text-align: center;
+  }
 `
 
 const Thumbnail = styled.div`
@@ -168,6 +213,7 @@ const Thumbnail = styled.div`
   height: 120px;
   margin-bottom: 15px;
   background: url(${props => props.src}) center/cover no-repeat;
+  border-radius: 4px;
   &:last-child {
     margin-bottom: 0;
   }
@@ -179,6 +225,15 @@ const Thumbnail = styled.div`
     cursor: pointer;
     img {
       opacity: 1;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    width: calc(100% / 4 - 10px);
+    height: 100%;
+    max-height: 120px;
+    max-width: 120px;
+    &:last-child {
+      margin-bottom: 15px;
     }
   }
 `
@@ -194,5 +249,6 @@ export {
   ModalContainer,
   OverlayContainer,
   StyledSideBar,
+  StyledSocialBar,
   Thumbnail,
 }

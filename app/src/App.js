@@ -7,18 +7,12 @@ import BrandOverviewCard from './components/BrandOverviewCard'
 import { brandAssets } from './data'
 
 injectGlobal`
-  @font-face {
-    font-family: 'Lato';
-    src: url('https://fonts.googleapis.com/css?family=Lato:300,700');
-  }
-
   body {
     margin: 0;
     font-family: 'Lato';
   }
 `
 
-// eslint-disable-next-line
 class App extends Component {
   constructor(props) {
     super(props)
