@@ -7,12 +7,10 @@ import BrandOverviewCard from './components/BrandOverviewCard'
 import { brandAssets } from './data'
 
 injectGlobal`
-  ${
-  '' /* @font-face {
+  @font-face {
     font-family: 'Lato';
-    src: url('https://fonts.googleapis.com/css?family=Lato:400,900');
-  } */
-}
+    src: url('https://fonts.googleapis.com/css?family=Lato:300,700');
+  }
 
   body {
     margin: 0;
@@ -41,16 +39,16 @@ class App extends Component {
     return (
       <Layout>
         <LogoSplash handleClick={this.handleClick} hoverCTAText="Share" />
-        {isOpen ? (
-          <ModalContainer>
+        <ModalContainer isOpen={isOpen}>
+          {isOpen ? (
             <Modal>
               <CloseButton onClick={() => this.handleClick()} />
               <BrandOverviewCard brandAssets={brandAssets} />
             </Modal>
-          </ModalContainer>
-        ) : (
-          ''
-        )}
+          ) : (
+            ''
+          )}
+        </ModalContainer>
       </Layout>
     )
   }

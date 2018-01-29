@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Facebook from '../assets/facebook.png'
-import Twitter from '../assets/twitter.png'
-import Email from '../assets/email.png'
-import Link from '../assets/link.png'
+import Facebook from '../assets/facebook@3x.png'
+import Twitter from '../assets/twitter@3x.png'
+import Email from '../assets/email@3x.png'
+import Link from '../assets/link@3x.png'
 
 const StyledSocialBar = styled.div`
   display: flex;
@@ -15,7 +15,12 @@ const StyledSocialBar = styled.div`
   grid-column-end: 6;
   padding: 25px;
   img {
+    width: 35px;
+    height: 35px;
     margin-left: 8px;
+    &:hover {
+      cursor: pointer;
+    }
   }
   p {
     height: 19px;

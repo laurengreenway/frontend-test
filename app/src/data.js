@@ -1,12 +1,12 @@
-import bcthmb from './assets/bc-thmb.png'
-import logothmb from './assets/logo-thmb.png'
-import shirtthmb from './assets/t-shirt-thmb.png'
-import socialthmb from './assets/social-media.png'
+import bcthmb from './assets/bc-thmb@3x.png'
+import logothmb from './assets/logo-thmb@3x.png'
+import shirtthmb from './assets/t-shirt-thmb@3x.png'
+import socialthmb from './assets/social-media@3x.png'
 
-import bclg from './assets/bc-lg.png'
-import logolg from './assets/logo-lg.png'
-import shirtlg from './assets/shirt-lg.png'
-import sociallg from './assets/sm-lg.png'
+import bclg from './assets/bc-lg@3x.png'
+import logolg from './assets/logo-lg@3x.png'
+import shirtlg from './assets/shirt-lg@3x.png'
+import sociallg from './assets/sm-lg@3x.png'
 
 export const brandAssets = [
   {

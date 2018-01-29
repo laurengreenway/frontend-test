@@ -4,8 +4,6 @@ import SocialBar from './SocialBar'
 import SideBar from './SideBar'
 import { InfoContainer, HeroImage } from './StyledComponents'
 
-
-// eslint-disable-next-line
 class BrandOverviewCard extends React.Component {
   constructor(props) {
     super(props)
@@ -15,19 +13,22 @@ class BrandOverviewCard extends React.Component {
     }
   }
   toggleImage(e) {
-    console.log(e)
     const activeImage = this.props.brandAssets[e]
     this.setState({ activeImage })
   }
   render() {
     const { brandAssets } = this.props
-    console.log(brandAssets)
+    const { activeImage } = this.state
     return (
       <React.Fragment>
         <SocialBar />
-        <SideBar brandAssets={brandAssets} handleClick={this.toggleImage} />
+        <SideBar
+          brandAssets={brandAssets}
+          handleClick={this.toggleImage}
+          activeImage={activeImage.id}
+        />
         <InfoContainer>
-          <HeroImage activeImage={this.state.activeImage.large} />
+          <HeroImage activeImage={activeImage.large} />
           <div className="text-container">
             <h2>The #1 Free Logo Maker - Logojoy</h2>
             <p>

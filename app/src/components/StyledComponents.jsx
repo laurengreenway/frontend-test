@@ -8,15 +8,18 @@ const OverlayContainer = styled.div`
   align-items: center;
   width: inherit;
   height: inherit;
-  border-radius: 8px;
+  border-radius: ${props => (props.small ? '4px' : '8px')};
+  background-color: ${props => (props.isActive ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0)')};
+  transition: all 0.2s ease-in;
   &:hover {
-    background-color: rgba(0, 0, 0, 0.6);
+    background-color: ${props => (props.small ? 'rgba(0,0,0,0.4)' : 'rgba(0,0,0,0.6)')};
   }
 `
 
 const InfoContainer = styled.div`
   grid-column-start: 4;
   grid-column-end: 5;
+  height: inherit;
   .text-container {
     padding: 26px 25px;
     border: 1px solid #d4dbe8;
@@ -24,21 +27,22 @@ const InfoContainer = styled.div`
     border-radius: 0 0 4px 4px;
     h2 {
       color: #090b17;
-      font-weight: 900;
+      font-weight: 700;
       line-height: 27px;
       font-size: 18px;
     }
     p {
       color: #535971;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 400;
+      letter-spacing: 0.1;
       line-height: 21px;
       padding-bottom: 20px;
     }
     a {
       color: #4f6df5;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 300;
       line-height: 21px;
     }
   }
@@ -47,12 +51,13 @@ const InfoContainer = styled.div`
 const ModalContainer = styled.div`
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: ${props => (props.isOpen ? 'rgba(0, 0, 0, 0.6)' : '')};
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  z-index: 999;
+  z-index: ${props => (props.isOpen ? '999' : '-1')};
+  transition: all 0.2s ease-in-out;
 `
 
 const Layout = styled.section`
@@ -73,6 +78,17 @@ const Modal = styled.div`
   padding-bottom: 40px;
   position: relative;
   border-radius: 4px;
+  @keyframes scaleUp {
+    0% {
+      transform: translateY(1000px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  animation: scaleUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 `
 
 const Logo = styled.div`
@@ -90,7 +106,7 @@ const Logo = styled.div`
   align-items: center;
   transition: all 0.2s ease-in-out;
   &:hover {
-    transform: scale(1.03);
+    transform: scale(1.02);
     button {
       display: block;
     }
@@ -100,8 +116,8 @@ const HeroImage = styled.div`
   background: url(${props => props.activeImage}) center/cover no-repeat;
   width: 100%;
   max-width: 538px;
-  height: 373px;
-  max-height: 373px;
+  height: 50vh;
+  max-height: 358px;
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -118,7 +134,7 @@ const Button = styled.button`
   color: white;
   font-family: 'Lato', sans-serif;
   font-size: 20px;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 27px;
   text-align: center;
   padding: 17px 78px;
@@ -142,6 +158,7 @@ const StyledSideBar = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   grid-column-start: 2;
   grid-column-end: 3;
 `
@@ -155,11 +172,13 @@ const Thumbnail = styled.div`
     margin-bottom: 0;
   }
   img {
-    display: none;
+    opacity: ${props => (props.isActive ? '1' : '0')};
+    transition: all 0.2s ease-in 0.1s;
   }
   &:hover {
+    cursor: pointer;
     img {
-      display: block;
+      opacity: 1;
     }
   }
 `
